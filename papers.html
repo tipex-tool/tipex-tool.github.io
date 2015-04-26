@@ -5,7 +5,7 @@ Released for free under a Creative Commons Attribution 3.0 License
 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>TiPEX: About</title>
+<title>TiPEX: Related Papers</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
@@ -43,40 +43,50 @@ during eXecution<br /><small></small></a></h1></div>
     <div class="content_resize">
       <div class="mainbar">
         <div class="article">
-          <h2><span>About</span> </h2>
-          <p>
-		    Runtime enforcement is a powerful technique to ensure that a running system respects
-			some desired properties. Using an enforcement monitor, an (untrustworthy) input execution (in
-			the form of a sequence of events) is modified into an output sequence that complies to a property.
-			Runtime enforcement has been extensively studied over the last decade in the context of untimed
-			properties.
+          <h2><span>Related Papers</span> </h2>
+          
+		  
+		  <p>
+		     The theory on runtime enforcement of timed properties is presented in the following papers:
+			 <br>
+			 <br>
+			
+			 <font size="3" color="black">Runtime Enforcement of Timed Properties Revisited (FMSD 2014)</font>
+		     <br>			
+			  This journal paper combines results of RV 12, and SAC 2014 papers, provides more details, complete formal proofs, and more examples.
+			  The enforcement monitoring algorithms implemented in the TiPEX tool are based on the the theory and algorithms presented in this paper.	
+			  It can be downloaded from 
+			  <a href="https://hal.inria.fr/hal-01088136/document" target="_blank">here</a>.
+  		  	 <br>
+			 <br>
+			 <font size="3" color="black">Runtime Enforcement of Regular Timed Properties (SAC 2014)</font>
+		     <br>			
+			  In this paper, we consider runtime enforcement of any regular timed property specified by a timed automaton. 
+			  It can be downloaded from 
+			  <a href="https://hal.inria.fr/hal-00907571/document" target="_blank">here</a>.
+			 <br> 
+			 <br>
+			 <font size="3" color="black">Runtime Enforcement of Parametric Timed Properties with Practical Applications (WODES 2014)</font>
+		     <br>			
+			 In this paper, we extend results to parametric timed properties.
+			 These results are not yet integrated into TiPEX. 
+			 It can be downloaded from
+			  <a href="https://hal.inria.fr/hal-00974548/document" target="_blank">here</a>.
+			 <br>
+			 <br>
+			 <font size="3" color="black">Runtime Enforcement of Timed Properties (RV 2012)</font>
+		     <br>			
+			  This paper presents initial results related to runtime enforcement
+			  of timed safety and co-safety properties. 
+			  It can be downloaded from 
+			  <a href="https://hal.archives-ouvertes.fr/file/index/docid/743270/filename/RV2012.pdf" target="_blank">here</a>.
 		  </p>
-         <!-- <img src="images/img1.jpg" width="287" height="97" alt="image" /> -->
-        
-		<p>
-		We are working on runtime enforcement of "timed properties" by revisiting the foundations of runtime enforcement when time between events matters.
-        We propose a new enforcement paradigm where enforcement mechanisms are "time retardants": to produce a correct output sequence, additional delays are introduced between the events of the input sequence.
+         
+			 
+		  </p>
 		
-
 		
-		<p>
-		The TiPEX tool implements enforcement monitoring algorithms
-		for timed properties (see related papers page). 
-		An enforcement monitor is generated from a timed automaton specifying a timed property. 
-		Its purpose	is to correct an input sequence according to this property. In addition,
-		TiPEX also provides modules to generate timed automata from
-		patterns, compose them, and check the class of properties they belong to in
-		order to optimize the monitors. 
-		</p>
-		
-		<p>
-		This website provides details, and references to the papers containing the theoretical results, 
-		and more details about the tool implementation, detailing its features, and instructions about how to use. 
-		We also provide the source code for download (together with examples).   
-		</p>
-		
-		</p>
-		
+			 
 		</div>
       
 	 <!-- <div class="article">
@@ -100,60 +110,33 @@ during eXecution<br /><small></small></a></h1></div>
         <div class="gadget">
           <h2 class="star"><span>Menu</span></h2>
           <ul class="sb_menu">
-            <li><a href="index.html">Home</a></li>
+<li><a href="index.html">Home</a></li>
             <li><a href="papers.html">Related Papers</a></li>
             <li><a href="prototype.html">TiPEX Overview</a></li>
 			<li><a href="download.html">Download</a></li>
 			<li><a href="demo.html">Documentation (TAG)</a></li>
 			<li><a href="howto.html">Documentation (EMTA+EME)</a></li>
-			
           </ul>
         </div>
 		
         <div class="gadget">
           <h2 class="star"><span>Team</span></h2>
           <ul class="ex_menu">
-             <li><a href="http://www.irisa.fr/prive/jeron/" title="Thierry Jéron "> <font size="2" color="black">Thierry Jéron</font>, INRIA, Rennes </a><br /></li>
+            <li><a href="http://www.irisa.fr/prive/jeron/" title="Thierry Jéron "> <font size="2" color="black">Thierry Jéron</font>, INRIA, Rennes </a><br /></li>
 			<li><a href="http://www.ylies.fr/" title="Yliès Falcone"> <font size="2" color="black">Yliès Falcone </font> LIG, Grenoble </a><br /></li>
 			<li><a href="http://people.rennes.inria.fr/Herve.Marchand/" title="Hervé Marchand "> <font size="2" color="black">Hervé Marchand </font> INRIA, Rennes</a><br /></li>
 			<li><a href="http://fr.linkedin.com/pub/srinivas-pinisetty/25/88a/a70" title="Srinivas Pinisetty">  <font size="2" color="black">Srinivas Pinisetty</font> INRIA, Rennes</a><br /></li>
-			
-          </ul>
+			<!--
+			<li><a href="http://www.labri.fr/perso/rollet/" title="Antoine Rollet "> <font size="2" color="black">Antoine Rollet</font> , LABRI, Bordeaux</a><br /></li>
+			<li><a href="http://www.labri.fr/perso/nguena/" title="Omer L. NGUENA TIMO "> <font size="2" color="black">Omer L. Nguena Timo </font>, CRIM, Montréal</a><br /></li>
+          <--
+		  </ul>
         </div>
       </div>
       <div class="clr"></div>
     </div>
   </div>
-
-  <!--
-  <div class="fbg">
-    <div class="fbg_resize">
-      <div class="col c1">
-        <h2><span>About</span></h2>
-        <img src="images/white.jpg" width="56" height="56" alt="pix" />
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo.  llorem, eu posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum. <a href="#">Learn more...</a></p>
-      </div>
-      <div class="col c2">
-        <h2><span>Lorem Ipsum</span></h2>
-        <ul class="sb_menu">
-          <li><a href="#">consequat molestie</a></li>
-          <li><a href="#">sem justo</a></li>
-          <li><a href="#">semper</a></li>
-          <li><a href="#">magna sed purus</a></li>
-          <li><a href="#">tincidunt</a></li>
-        </ul>
-      </div>
-      <div class="col c3">
-        <h2>Contact</h2>
-        <p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.</p>
-        <p><strong>Phone:</strong> +1234567<br />
-          <strong>Address:</strong> 123 TemplateAccess Rd<br />
-          <strong>E-mail:</strong> <a href="mailto:info@example.com">info@example.com</a></p>
-      </div>
-      <div class="clr"></div>
-    </div>
-  </div>
-  -->
+  
   <div class="footer">
     <div class="footer_resize">
       <p class="lf">&copy; Website designed with the help of website templates by <a href="http://www.bluewebtemplates.com">Website Templates</a></p>
@@ -166,7 +149,7 @@ during eXecution<br /><small></small></a></h1></div>
       </ul> -->
       <div class="clr"></div>
     </div>
-  </div> 
+	
 </div>
 </body>
 </html>

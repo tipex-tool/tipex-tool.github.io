@@ -5,7 +5,7 @@ Released for free under a Creative Commons Attribution 3.0 License
 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>TiPEX: About</title>
+<title>TiPEX</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
@@ -43,41 +43,115 @@ during eXecution<br /><small></small></a></h1></div>
     <div class="content_resize">
       <div class="mainbar">
         <div class="article">
-          <h2><span>About</span> </h2>
-          <p>
-		    Runtime enforcement is a powerful technique to ensure that a running system respects
-			some desired properties. Using an enforcement monitor, an (untrustworthy) input execution (in
-			the form of a sequence of events) is modified into an output sequence that complies to a property.
-			Runtime enforcement has been extensively studied over the last decade in the context of untimed
-			properties.
+          <h2><span>Documentation (TAG Features)</span> </h2>
+		   
+		   <p>
+		   <b>Prerequisits</b>: The TAG module is implemented in Python.
+		   The only requirement is to have Python installed.
+		   Note that the version of Python used was Python 2.7.
+		   </p>
+		   
+		   <p>
+		   This module is independent from the EMTA and EME modules.
+		   The features of this module are shown in the figure below.
+		   <br>
+		   <img src="fig/overviewTAG.jpg" width="420" height="130">
+		   </p>
+		  
+		  <p>
+		  <b> Usage on an example</b> : The TAG tool has a basic GUI.
+		  The following lines demonstrates how to launch the GUI via python comand line.
+		  
+		  <ul>
+		  <li> Browse to the folder containing the source code (which contains the file "GUI_TAG_Tool.py").</li>
+		  <li> Execute the script "GUI_TAG_Tool.py" entering the following line in the command prompt "python GUI_TAG_Tool.py "</li>
+		  <li> A GUI will be launched (shown in the figure below), using which the user can select to generate a basic TA, or to combine TAs, or to check the class of a TA </li> 
+		  </ul>
+		  We will now demonstrate how to use each feature via an example.
+		  <img src="fig/GUItag.png" width="280" height="180" align="middle">
+		  	  
 		  </p>
-         <!-- <img src="images/img1.jpg" width="287" height="97" alt="image" /> -->
-        
-		<p>
-		We are working on runtime enforcement of "timed properties" by revisiting the foundations of runtime enforcement when time between events matters.
-        We propose a new enforcement paradigm where enforcement mechanisms are "time retardants": to produce a correct output sequence, additional delays are introduced between the events of the input sequence.
-		
 
-		
-		<p>
-		The TiPEX tool implements enforcement monitoring algorithms
-		for timed properties (see related papers page). 
-		An enforcement monitor is generated from a timed automaton specifying a timed property. 
-		Its purpose	is to correct an input sequence according to this property. In addition,
-		TiPEX also provides modules to generate timed automata from
-		patterns, compose them, and check the class of properties they belong to in
-		order to optimize the monitors. 
+		  
+		  
+          <h3><span>Generating Basic TA</span> </h3>
+		  <p>
+		   Clicking "<b>GenerateBasicTA</b>" launches the GUI shown below.
+		   <img src="fig/generateTA.png" width="300" height="200" align="middle">
+		  </p>
+		  
+		  <p>
+		  The following lines show data that is entered to generate TA defining requirement 
+		  <i>"A sequence of "3" "a" actions enables action "b" after a delay of at least "5" time units"</i>.
+		  		  
+		  <ol>
+		  <li> # <b> Action1</b>: a </li>
+		  <li> # <b> Action2</b>: b </li>
+		  <li> # <b> Pattern</b>: Precedence </li> 
+		  <li> # <b> Complexity</b>: 3  </li>
+		  <li> # <b> Time constraint value</b>: 5 </li>
+		  </ol>
+		  </p>
+		  
+		  <p>
+		  After entering this data in respective fields, and clicking "<b>GenerateTA</b>" button, a ".xml" file will be gnerated 
+		  with name "Example_Gen", containing the TA in UPPAAL format in the directory "\ToolBasicTAgenerator".
+		  The figure below shows the generated generated TA (.xml) file is opened/viewed in UPPAAL.
+		  <img src="fig/Precedence-crop_1.jpg" width="280" height="170">
+		  </p>
+		  <br>
+		  <b>NOTE:</b> Please check the README file in the directory "\ToolBasicTAgenerator" for more examples of usage, 
+		  and other details.
+		 <br>
+		<br>
+		  
+		  <h3><span>Boolean Operations</span> </h3>
+		  <p>
+		   Clicking "<b>Combine TAs</b>" will launch the GUI shown below.
+		   <img src="fig/combineTAs.png" width="300" height="200">
+		  </p>
+		  
+		  <p>
+		  
+		  Clicking "<b>Select File</b>" button will allow the user to select a input UPPAAL model.
+		  The input UPPAAL model (stored as .xml) selected by the user, 
+		  should contain two input TAs (defined as two different templates). 
+	      Note that in the input TAs, accepting locations should be named as "FINAL".
+		  The user should select an operation.
+		  The resulting TA will be written as another template in the UPPAAL model file given as input by the user. 
+		  
+		  <br>
+		  
+		  There are example input models in the directory "\Tool_TA_BooleanOperations\ExampleInputTAs".
+		  The "Example.xml" in the directory contains the two following input TAs.
+		  <img src="fig/inpProp.png" width="500" height="130" align="middle">
+		  <br>
+		  By selecting "Example.xml" as input file, and "union" as operation, 
+		  the resulting TA after performing Union operation on the two input TAs (writen as another additional template in Example.xml)  is show below.
+		  <img src="fig/TA_Union.jpg" width="300" height="180" align="middle">
+		  		  
+		  <br>
+		  <b>NOTE:</b> Please check the README file in the directory "\Tool_TA_BooleanOperations\" for more details.
+		<br>
+		<br>
+	
+	<h3><span>Class Checker</span> </h3>
+		  <p>
+		   Clicking "<b>Check Class</b>"  launches the GUI shown below.
+		  The user should provide the input TA (in UPPAAL format stored as .xml), to check its class.
+		  Clicking "<b>Choose File</b>" button will allow the user to select the input TA, 
+		  and check its class.
+		  In the directory "\Tool_TA_ClassIdentifier\ExampleInputTAs", there are some example TAs.
+		   <br>
+		   <img src="fig/classChecker.png" width="200" height="150">
+		  
+		  		  
+		  <br>
+		  <b>NOTE:</b> Please check the README file in the directory "\Tool_TA_ClassIdentifier\" for additional details.
 		</p>
-		
-		<p>
-		This website provides details, and references to the papers containing the theoretical results, 
-		and more details about the tool implementation, detailing its features, and instructions about how to use. 
-		We also provide the source code for download (together with examples).   
-		</p>
-		
-		</p>
-		
-		</div>
+	
+	
+	</div>
       
 	 <!-- <div class="article">
           <h2><span>Lorem Ipsum</span> Dolor Sit</h2>
@@ -100,25 +174,27 @@ during eXecution<br /><small></small></a></h1></div>
         <div class="gadget">
           <h2 class="star"><span>Menu</span></h2>
           <ul class="sb_menu">
-            <li><a href="index.html">Home</a></li>
+<li><a href="index.html">Home</a></li>
             <li><a href="papers.html">Related Papers</a></li>
             <li><a href="prototype.html">TiPEX Overview</a></li>
 			<li><a href="download.html">Download</a></li>
 			<li><a href="demo.html">Documentation (TAG)</a></li>
 			<li><a href="howto.html">Documentation (EMTA+EME)</a></li>
-			
           </ul>
         </div>
 		
         <div class="gadget">
           <h2 class="star"><span>Team</span></h2>
           <ul class="ex_menu">
-             <li><a href="http://www.irisa.fr/prive/jeron/" title="Thierry Jéron "> <font size="2" color="black">Thierry Jéron</font>, INRIA, Rennes </a><br /></li>
+            <li><a href="http://www.irisa.fr/prive/jeron/" title="Thierry Jéron "> <font size="2" color="black">Thierry Jéron</font>, INRIA, Rennes </a><br /></li>
 			<li><a href="http://www.ylies.fr/" title="Yliès Falcone"> <font size="2" color="black">Yliès Falcone </font> LIG, Grenoble </a><br /></li>
 			<li><a href="http://people.rennes.inria.fr/Herve.Marchand/" title="Hervé Marchand "> <font size="2" color="black">Hervé Marchand </font> INRIA, Rennes</a><br /></li>
 			<li><a href="http://fr.linkedin.com/pub/srinivas-pinisetty/25/88a/a70" title="Srinivas Pinisetty">  <font size="2" color="black">Srinivas Pinisetty</font> INRIA, Rennes</a><br /></li>
-			
-          </ul>
+			<!--
+			<li><a href="http://www.labri.fr/perso/rollet/" title="Antoine Rollet "> <font size="2" color="black">Antoine Rollet</font> , LABRI, Bordeaux</a><br /></li>
+			<li><a href="http://www.labri.fr/perso/nguena/" title="Omer L. NGUENA TIMO "> <font size="2" color="black">Omer L. Nguena Timo </font>, CRIM, Montréal</a><br /></li>
+          -->
+		  </ul>
         </div>
       </div>
       <div class="clr"></div>
@@ -154,7 +230,7 @@ during eXecution<br /><small></small></a></h1></div>
     </div>
   </div>
   -->
-  <div class="footer">
+ <div class="footer">
     <div class="footer_resize">
       <p class="lf">&copy; Website designed with the help of website templates by <a href="http://www.bluewebtemplates.com">Website Templates</a></p>
      <!-- <ul class="fmenu">
@@ -166,7 +242,6 @@ during eXecution<br /><small></small></a></h1></div>
       </ul> -->
       <div class="clr"></div>
     </div>
-  </div> 
 </div>
 </body>
 </html>

@@ -5,7 +5,7 @@ Released for free under a Creative Commons Attribution 3.0 License
 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>TiPEX: About</title>
+<title>TiPEX</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
@@ -43,40 +43,48 @@ during eXecution<br /><small></small></a></h1></div>
     <div class="content_resize">
       <div class="mainbar">
         <div class="article">
-          <h2><span>About</span> </h2>
+          <h2><span>TiPEX Tool Overview</span> </h2>
           <p>
-		    Runtime enforcement is a powerful technique to ensure that a running system respects
-			some desired properties. Using an enforcement monitor, an (untrustworthy) input execution (in
-			the form of a sequence of events) is modified into an output sequence that complies to a property.
-			Runtime enforcement has been extensively studied over the last decade in the context of untimed
-			properties.
-		  </p>
-         <!-- <img src="images/img1.jpg" width="287" height="97" alt="image" /> -->
-        
-		<p>
-		We are working on runtime enforcement of "timed properties" by revisiting the foundations of runtime enforcement when time between events matters.
-        We propose a new enforcement paradigm where enforcement mechanisms are "time retardants": to produce a correct output sequence, additional delays are introduced between the events of the input sequence.
-		
+			TiPEX is a tool of 1200 LLOC in Python and consists of three
+			modules (shown in the figure below). The tool also uses the PyUPPAAL, DBMpyuppaal, and PyDBM libraries which are available 
+			for download 
+			at <a href="http://people.cs.aau.dk/~adavid/python/" target="_blank">http://people.cs.aau.dk/~adavid/python/</a>.
+			
+			<img src="fig/overview.jpg" width="400" height="350">
+			</p>
+			The Enforcement Monitor from Timed Automata (EMTA) module consists
+			in an implementation of the enforcement algorithms.
+			
+			<p>
+			The Enforcement Monitor Evaluation (EME) module is a test harness for the performance of enforcement monitors, 
+			with functionalities such as a trace generator.
+			</p>
+			
+			<p>
+			The Timed Automata Generator (TAG) module provides functionalities 
+			such as generating and composing TAs (which can be also used in other contexts than enforcement monitoring).
+			</p>
+			
+			
+<!--
+			A prototype is implemented in python based on the algorithms presented in the paper.
+			The purpose of the prototype is to demonstrate feasibility, and have a first assesment 
+			of performance (and to what extent the overhead induced by monitoring is negligable).
+			
+			The property (modeled as a TA), which should be provided as input to the tool is built using UPPAAL, 
+			and is stored in XML.
+			The tool also uses the PyUPPAAL and DBMpyuppaal libraries which are available for download 
+			at <a href="http://people.cs.aau.dk/~adavid/python/" target="_blank">http://people.cs.aau.dk/~adavid/python/</a>.
+-->	    
+		</p>
+			
+		 <p>
+		 The source code and some examples can be downloaded <a href="download.html">here</a>.
+		 </p>		
 
-		
-		<p>
-		The TiPEX tool implements enforcement monitoring algorithms
-		for timed properties (see related papers page). 
-		An enforcement monitor is generated from a timed automaton specifying a timed property. 
-		Its purpose	is to correct an input sequence according to this property. In addition,
-		TiPEX also provides modules to generate timed automata from
-		patterns, compose them, and check the class of properties they belong to in
-		order to optimize the monitors. 
-		</p>
-		
-		<p>
-		This website provides details, and references to the papers containing the theoretical results, 
-		and more details about the tool implementation, detailing its features, and instructions about how to use. 
-		We also provide the source code for download (together with examples).   
-		</p>
-		
-		</p>
-		
+		  <!-- <img src="images/img1.jpg" width="287" height="97" alt="image" /> -->
+        
+				
 		</div>
       
 	 <!-- <div class="article">
@@ -106,19 +114,17 @@ during eXecution<br /><small></small></a></h1></div>
 			<li><a href="download.html">Download</a></li>
 			<li><a href="demo.html">Documentation (TAG)</a></li>
 			<li><a href="howto.html">Documentation (EMTA+EME)</a></li>
-			
           </ul>
         </div>
 		
         <div class="gadget">
           <h2 class="star"><span>Team</span></h2>
           <ul class="ex_menu">
-             <li><a href="http://www.irisa.fr/prive/jeron/" title="Thierry Jéron "> <font size="2" color="black">Thierry Jéron</font>, INRIA, Rennes </a><br /></li>
+            <li><a href="http://www.irisa.fr/prive/jeron/" title="Thierry Jéron "> <font size="2" color="black">Thierry Jéron</font>, INRIA, Rennes </a><br /></li>
 			<li><a href="http://www.ylies.fr/" title="Yliès Falcone"> <font size="2" color="black">Yliès Falcone </font> LIG, Grenoble </a><br /></li>
 			<li><a href="http://people.rennes.inria.fr/Herve.Marchand/" title="Hervé Marchand "> <font size="2" color="black">Hervé Marchand </font> INRIA, Rennes</a><br /></li>
 			<li><a href="http://fr.linkedin.com/pub/srinivas-pinisetty/25/88a/a70" title="Srinivas Pinisetty">  <font size="2" color="black">Srinivas Pinisetty</font> INRIA, Rennes</a><br /></li>
-			
-          </ul>
+		  </ul>
         </div>
       </div>
       <div class="clr"></div>
@@ -154,7 +160,7 @@ during eXecution<br /><small></small></a></h1></div>
     </div>
   </div>
   -->
-  <div class="footer">
+ <div class="footer">
     <div class="footer_resize">
       <p class="lf">&copy; Website designed with the help of website templates by <a href="http://www.bluewebtemplates.com">Website Templates</a></p>
      <!-- <ul class="fmenu">
@@ -166,7 +172,6 @@ during eXecution<br /><small></small></a></h1></div>
       </ul> -->
       <div class="clr"></div>
     </div>
-  </div> 
 </div>
 </body>
 </html>

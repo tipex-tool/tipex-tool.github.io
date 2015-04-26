@@ -5,7 +5,7 @@ Released for free under a Creative Commons Attribution 3.0 License
 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>TiPEX: About</title>
+<title>Template</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
@@ -43,40 +43,46 @@ during eXecution<br /><small></small></a></h1></div>
     <div class="content_resize">
       <div class="mainbar">
         <div class="article">
-          <h2><span>About</span> </h2>
+          <h2><span>Documentation</span> </h2>
+		  
           <p>
-		    Runtime enforcement is a powerful technique to ensure that a running system respects
-			some desired properties. Using an enforcement monitor, an (untrustworthy) input execution (in
-			the form of a sequence of events) is modified into an output sequence that complies to a property.
-			Runtime enforcement has been extensively studied over the last decade in the context of untimed
-			properties.
-		  </p>
-         <!-- <img src="images/img1.jpg" width="287" height="97" alt="image" /> -->
-        
-		<p>
-		We are working on runtime enforcement of "timed properties" by revisiting the foundations of runtime enforcement when time between events matters.
-        We propose a new enforcement paradigm where enforcement mechanisms are "time retardants": to produce a correct output sequence, additional delays are introduced between the events of the input sequence.
+		    The prototype is implemented in Python (2.6.6), using the libraries PYUPPAAL, DBMPYUPPAAL and PYDBM, written in Python available for download at <a href="http://people.cs.aau.dk/~adavid/python/" target="_blank">http://people.cs.aau.dk/~adavid/python/</a>.
+			Note that the prototype is tested only on Linux (Configuration of the system used is: Intel Core i7-2720QM (4 cores) at 2.20GHz CPU, with 4 GB RAM, and running on Ubuntu 10.10).	
+	     </p>
 		
+		<p>
+		The experimental framework used, is shown in the figure below. 
+		<img src="fig/testFramework.jpg" width="450" height="200">
+		<br>
+		The Main module uses the module Trace Generator that provides a set of input traces, to test the Store module. 
+		The Trace Generator module takes as input the set of possible actions, the range of delays, the number of traces, and the increment in length per trace. 
+		It returns a set of traces. 
+		The Store module takes as input a property and one trace, and returns the total execution of the update function to process the given input trace.
+		</P>		
 
-		
 		<p>
-		The TiPEX tool implements enforcement monitoring algorithms
-		for timed properties (see related papers page). 
-		An enforcement monitor is generated from a timed automaton specifying a timed property. 
-		Its purpose	is to correct an input sequence according to this property. In addition,
-		TiPEX also provides modules to generate timed automata from
-		patterns, compose them, and check the class of properties they belong to in
-		order to optimize the monitors. 
+		An example of how the main test method is invoked via Python command line is shown in the figure below.
+        <img src="fig/SafetySnap.png" width="700" height="250">
+         		
+			<ul>
+			<li> Import the MainTest module. </li>
+			<li> Define the property. "Example_Safety.xml" is the property in this example, which is a UPPAAL model stored as "xml". (Some more properties are also available in the directory "ExampleProperties"). </li>
+			<li> Define the possible actions (as shown in the image above, the possible actions in this example are 'a', 'b', 'c'). </li>
+			<li> Define the range of possible delays. </li>
+			<li> Invoke the "testStoreProcess" method in the MainTest module, providing the following arguments in order: </li>
+				<ol>
+				<li>&nbsp Property</li>
+				<li>&nbsp actions</li>
+				<li>&nbsp delays</li>
+				<li>&nbsp #traces</li>
+				<li>&nbsp incr</li>
+				</ol>
+			</ul>
 		</p>
-		
-		<p>
-		This website provides details, and references to the papers containing the theoretical results, 
-		and more details about the tool implementation, detailing its features, and instructions about how to use. 
-		We also provide the source code for download (together with examples).   
-		</p>
-		
-		</p>
-		
+		<p>	
+		"#traces" is the number of traces we want to use for testing (3 in the example above), each trace varying is length, and "incr" is the increment in length per trace (1000 in the example above).
+		As shown in the figure above, a list of triples(trace length, total execution time of the Update function, average time per call of the Update function)  is returned as the result.
+		</p>	
 		</div>
       
 	 <!-- <div class="article">
@@ -100,25 +106,27 @@ during eXecution<br /><small></small></a></h1></div>
         <div class="gadget">
           <h2 class="star"><span>Menu</span></h2>
           <ul class="sb_menu">
-            <li><a href="index.html">Home</a></li>
+<li><a href="index.html">Home</a></li>
             <li><a href="papers.html">Related Papers</a></li>
             <li><a href="prototype.html">TiPEX Overview</a></li>
 			<li><a href="download.html">Download</a></li>
 			<li><a href="demo.html">Documentation (TAG)</a></li>
 			<li><a href="howto.html">Documentation (EMTA+EME)</a></li>
-			
           </ul>
         </div>
 		
         <div class="gadget">
           <h2 class="star"><span>Team</span></h2>
           <ul class="ex_menu">
-             <li><a href="http://www.irisa.fr/prive/jeron/" title="Thierry Jéron "> <font size="2" color="black">Thierry Jéron</font>, INRIA, Rennes </a><br /></li>
+            <li><a href="http://www.irisa.fr/prive/jeron/" title="Thierry Jéron "> <font size="2" color="black">Thierry Jéron</font>, INRIA, Rennes </a><br /></li>
 			<li><a href="http://www.ylies.fr/" title="Yliès Falcone"> <font size="2" color="black">Yliès Falcone </font> LIG, Grenoble </a><br /></li>
 			<li><a href="http://people.rennes.inria.fr/Herve.Marchand/" title="Hervé Marchand "> <font size="2" color="black">Hervé Marchand </font> INRIA, Rennes</a><br /></li>
 			<li><a href="http://fr.linkedin.com/pub/srinivas-pinisetty/25/88a/a70" title="Srinivas Pinisetty">  <font size="2" color="black">Srinivas Pinisetty</font> INRIA, Rennes</a><br /></li>
-			
-          </ul>
+			<!--
+			<li><a href="http://www.labri.fr/perso/rollet/" title="Antoine Rollet "> <font size="2" color="black">Antoine Rollet</font> , LABRI, Bordeaux</a><br /></li>
+			<li><a href="http://www.labri.fr/perso/nguena/" title="Omer L. NGUENA TIMO "> <font size="2" color="black">Omer L. Nguena Timo </font>, CRIM, Montréal</a><br /></li>
+          -->
+		  </ul>
         </div>
       </div>
       <div class="clr"></div>
@@ -154,7 +162,7 @@ during eXecution<br /><small></small></a></h1></div>
     </div>
   </div>
   -->
-  <div class="footer">
+ <div class="footer">
     <div class="footer_resize">
       <p class="lf">&copy; Website designed with the help of website templates by <a href="http://www.bluewebtemplates.com">Website Templates</a></p>
      <!-- <ul class="fmenu">
@@ -166,7 +174,6 @@ during eXecution<br /><small></small></a></h1></div>
       </ul> -->
       <div class="clr"></div>
     </div>
-  </div> 
 </div>
 </body>
 </html>
